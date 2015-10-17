@@ -35,7 +35,7 @@ android {
     }
 }
 
-final SUPPORT_LIBRARY_VERSION = '23.0.1'
+final SUPPORT_LIBRARY_VERSION = '23.1.0'
 
 configurations.all {
     resolutionStrategy {
@@ -59,7 +59,6 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
 
     compile 'com.jakewharton.timber:timber:4.0.1'
-    compile 'com.jakewharton.threetenabp:threetenabp:1.0.2'
     compile 'com.jakewharton:butterknife:7.0.1'
 
     compile 'com.squareup.okhttp:okhttp:2.5.0'
@@ -68,9 +67,6 @@ dependencies {
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.squareup.picasso:picasso:2.5.2'
-
-    compile 'com.github.yatatsu:powerwebview:0.1.4'
-    compile 'com.github.yatatsu:powerwebview-rx:0.1.4'
 
     testCompile 'junit:junit:4.12'
     testCompile 'com.google.truth:truth:0.27'
