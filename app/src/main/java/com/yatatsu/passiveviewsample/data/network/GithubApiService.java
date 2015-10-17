@@ -1,4 +1,4 @@
-package com.yatatsu.passiveviewsample.network;
+package com.yatatsu.passiveviewsample.data.network;
 
 import com.yatatsu.passiveviewsample.data.model.Repository;
 import com.yatatsu.passiveviewsample.data.model.User;
@@ -9,6 +9,6 @@ import rx.Observable;
 
 
 public interface GithubApiService {
-    Observable<User> getUser();
-    Observable<List<Repository>> getRepositories();
+    Observable<User> getUser(String userName);
+    Observable<List<Repository>> getRepositories(String userName);
 }

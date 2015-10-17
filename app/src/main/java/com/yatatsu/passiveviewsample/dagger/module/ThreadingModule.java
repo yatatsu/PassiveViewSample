@@ -1,4 +1,4 @@
-package com.yatatsu.passiveviewsample.dagger;
+package com.yatatsu.passiveviewsample.dagger.module;
 
 import dagger.Module;
 import dagger.Provides;

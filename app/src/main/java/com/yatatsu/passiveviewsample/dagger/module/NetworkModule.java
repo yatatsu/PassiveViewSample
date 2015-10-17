@@ -1,9 +1,10 @@
-package com.yatatsu.passiveviewsample.dagger;
+package com.yatatsu.passiveviewsample.dagger.module;
 
 import android.content.Context;
 
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
+import com.yatatsu.passiveviewsample.dagger.scope.ApplicationScope;
 
 import java.io.File;
 
@@ -16,6 +17,7 @@ import dagger.Provides;
 @Module
 public class NetworkModule {
 
+    @ApplicationScope
     @Provides
     public OkHttpClient provideOkHttpClient(Context context) {
         File cacheFile = new File(context.getCacheDir(), "okhttp.cache");

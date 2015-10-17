@@ -1,0 +1,22 @@
+package com.yatatsu.passiveviewsample.dagger.component;
+
+import com.yatatsu.passiveviewsample.dagger.module.GithubApiModule;
+import com.yatatsu.passiveviewsample.dagger.module.NetworkModule;
+import com.yatatsu.passiveviewsample.dagger.module.ThreadingModule;
+import com.yatatsu.passiveviewsample.dagger.scope.ApplicationScope;
+
+import dagger.Component;
+
+/**
+ * BaseComponent
+ */
+@ApplicationScope
+@Component(modules =
+        {
+                NetworkModule.class,
+                ThreadingModule.class,
+                GithubApiModule.class
+        },
+        dependencies = AppComponent.class)
+public interface BaseComponent {
+}

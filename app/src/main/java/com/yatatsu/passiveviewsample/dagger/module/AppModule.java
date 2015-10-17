@@ -1,7 +1,9 @@
-package com.yatatsu.passiveviewsample.dagger;
+package com.yatatsu.passiveviewsample.dagger.module;
 
 import android.app.Application;
 import android.content.Context;
+
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,6 +17,7 @@ public class AppModule {
         applicationContext = application;
     }
 
+    @Singleton
     @Provides
     public Context provideApplicationContext() {
         return applicationContext;
