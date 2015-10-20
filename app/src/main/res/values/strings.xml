@@ -3,4 +3,5 @@
 
     <string name="label_username">username</string>
     <string name="label_submit_username">SHOW USER</string>
+    <string name="label_name">NAME</string>
 </resources>

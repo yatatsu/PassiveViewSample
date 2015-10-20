@@ -1,5 +1,6 @@
 package com.yatatsu.passiveviewsample.ui.input;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
@@ -12,13 +13,14 @@ import com.yatatsu.passiveviewsample.PVSApplication;
 import com.yatatsu.passiveviewsample.R;
 import com.yatatsu.passiveviewsample.dagger.component.DaggerActivityInjectorComponent;
 import com.yatatsu.passiveviewsample.ui.base.ScreenActivity;
+import com.yatatsu.passiveviewsample.ui.user.UserActivityAutoBundle;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import timber.log.Timber;
+import butterknife.OnEditorAction;
 
 
 public class InputActivity extends ScreenActivity<InputController> implements InputScreen {
@@ -39,16 +41,15 @@ public class InputActivity extends ScreenActivity<InputController> implements In
         setContentView(R.layout.activity_input);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (i == EditorInfo.IME_ACTION_GO) {
-                    controller.onSubmitEditText(textView.getText().toString());
-                    return true;
-                }
-                return false;
-            }
-        });
+    }
+
+    @OnEditorAction(R.id.edit_text)
+    boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        if (i == EditorInfo.IME_ACTION_GO) {
+            controller.onSubmitEditText(textView.getText().toString());
+            return true;
+        }
+        return false;
     }
 
     @OnClick(R.id.submit_username)
@@ -67,7 +68,10 @@ public class InputActivity extends ScreenActivity<InputController> implements In
 
     @Override
     public void navigateToUserScreen(String username) {
-        Timber.d("username: %s", username);
+        Intent intent = UserActivityAutoBundle
+                .createIntentBuilder(username)
+                .build(this);
+        startActivity(intent);
     }
 
     @Override

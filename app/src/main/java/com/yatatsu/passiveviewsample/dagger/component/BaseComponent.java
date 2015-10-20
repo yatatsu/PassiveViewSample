@@ -4,6 +4,7 @@ import com.yatatsu.passiveviewsample.dagger.module.GithubApiModule;
 import com.yatatsu.passiveviewsample.dagger.module.NetworkModule;
 import com.yatatsu.passiveviewsample.dagger.module.ThreadingModule;
 import com.yatatsu.passiveviewsample.dagger.scope.ApplicationScope;
+import com.yatatsu.passiveviewsample.data.api.GitHubService;
 
 import dagger.Component;
 
@@ -19,4 +20,5 @@ import dagger.Component;
         },
         dependencies = AppComponent.class)
 public interface BaseComponent {
+    GitHubService gitHubService();
 }

@@ -12,6 +12,7 @@ import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
 import rx.Observable;
 import rx.Scheduler;
+import rx.schedulers.Schedulers;
 
 
 public class GitHub implements GitHubService {
@@ -33,12 +34,14 @@ public class GitHub implements GitHubService {
     @Override
     public Observable<User> getUser(String username) {
         return gitHubService.getUser(username)
+                .subscribeOn(Schedulers.io())
                 .observeOn(scheduler);
     }
 
     @Override
     public Observable<List<Repository>> getRepositories(String username) {
         return gitHubService.getRepositories(username)
+                .subscribeOn(Schedulers.io())
                 .observeOn(scheduler);
     }
 }
