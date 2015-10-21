@@ -1,5 +1,6 @@
 package com.yatatsu.passiveviewsample.dagger.component;
 
+import com.squareup.picasso.Picasso;
 import com.yatatsu.passiveviewsample.dagger.module.GithubApiModule;
 import com.yatatsu.passiveviewsample.dagger.module.NetworkModule;
 import com.yatatsu.passiveviewsample.dagger.module.ThreadingModule;
@@ -21,4 +22,5 @@ import dagger.Component;
         dependencies = AppComponent.class)
 public interface BaseComponent {
     GitHubService gitHubService();
+    Picasso picasso();
 }

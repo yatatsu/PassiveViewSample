@@ -25,6 +25,8 @@ public class UserActivity extends ScreenActivity<UserController> implements User
 
     @Inject
     UserController controller;
+    @Inject
+    Picasso picasso;
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -69,9 +71,7 @@ public class UserActivity extends ScreenActivity<UserController> implements User
 
     @Override
     public void showUserImage(String avatarUrl) {
-        // TODO Picasso with app okHttp
-        Picasso.with(this)
-                .load(avatarUrl)
+        picasso.load(avatarUrl)
                 .fit()
                 .into(userImageView);
     }
