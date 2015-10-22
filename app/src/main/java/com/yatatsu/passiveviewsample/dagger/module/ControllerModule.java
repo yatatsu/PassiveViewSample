@@ -27,7 +27,7 @@ public class ControllerModule {
 
     @Provides
     @ActivityScope
-    ReposController provideReposController() {
-        return new ReposController();
+    ReposController provideReposController(GitHubService gitHubService) {
+        return new ReposController(gitHubService);
     }
 }

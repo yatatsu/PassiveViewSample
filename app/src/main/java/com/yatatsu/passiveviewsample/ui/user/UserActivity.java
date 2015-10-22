@@ -1,6 +1,7 @@
 package com.yatatsu.passiveviewsample.ui.user;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.yatatsu.passiveviewsample.PVSApplication;
 import com.yatatsu.passiveviewsample.R;
 import com.yatatsu.passiveviewsample.dagger.component.DaggerActivityInjectorComponent;
 import com.yatatsu.passiveviewsample.ui.base.ScreenActivity;
+import com.yatatsu.passiveviewsample.ui.repos.ReposActivityAutoBundle;
 
 import javax.inject.Inject;
 
@@ -88,6 +90,9 @@ public class UserActivity extends ScreenActivity<UserController> implements User
 
     @Override
     public void navigateToReposScreen(String username) {
-        Timber.d("navigateToReposScreen with %s", username);
+        Intent intent = ReposActivityAutoBundle
+                .createIntentBuilder(username)
+                .build(this);
+        startActivity(intent);
     }
 }
