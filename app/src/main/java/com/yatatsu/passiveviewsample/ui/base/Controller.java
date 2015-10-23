@@ -9,7 +9,7 @@ public abstract class Controller<T extends Screen> {
     private T screen;
     private CompositeSubscription compositeSubscription;
 
-    void registerScreen(T screen) {
+    public void registerScreen(T screen) {
         this.screen = screen;
     }
 
