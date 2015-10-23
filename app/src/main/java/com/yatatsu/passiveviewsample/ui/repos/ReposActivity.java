@@ -1,10 +1,14 @@
 package com.yatatsu.passiveviewsample.ui.repos;
 
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.yatatsu.autobundle.Arg;
 import com.yatatsu.autobundle.AutoBundle;
@@ -48,7 +52,13 @@ public class ReposActivity extends ScreenActivity<ReposController> implements Re
         controller.onCreateScreen(username);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        reposAdapter = new ReposAdapter(this);
+        reposAdapter = new ReposAdapter(this, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = recyclerView.getChildAdapterPosition(view);
+                controller.onItemClick(reposAdapter.getItem(position));
+            }
+        });
         recyclerView.setAdapter(reposAdapter);
     }
 
@@ -81,5 +91,14 @@ public class ReposActivity extends ScreenActivity<ReposController> implements Re
     @Override
     public void showError(String message) {
         Timber.e(message);
+    }
+
+    @Override
+    public void openUrl(String url) {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        } catch (ActivityNotFoundException e) {
+            Timber.e(e, "cannot open %s", url);
+        }
     }
 }

@@ -41,4 +41,8 @@ public class ReposController extends Controller<ReposScreen> {
     void onStopScreen() {
         unSubscribe();
     }
+
+    void onItemClick(Repository repository) {
+        getScreen().openUrl(repository.htmlUrl);
+    }
 }

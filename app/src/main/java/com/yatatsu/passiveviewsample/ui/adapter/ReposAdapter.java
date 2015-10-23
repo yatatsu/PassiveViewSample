@@ -20,10 +20,12 @@ import butterknife.ButterKnife;
 public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ViewHolder> {
 
     private final Context context;
+    private final View.OnClickListener onClickListener;
     private List<Repository> repos;
 
-    public ReposAdapter(Context context) {
+    public ReposAdapter(Context context, View.OnClickListener onClickListener) {
         this.context = context;
+        this.onClickListener = onClickListener;
         repos = new ArrayList<>();
     }
 
@@ -33,10 +35,15 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
 
+    public Repository getItem(int position) {
+        return repos.get(position);
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.list_item_repository, parent, false);
+        view.setOnClickListener(onClickListener);
         return new ViewHolder(view);
     }
 

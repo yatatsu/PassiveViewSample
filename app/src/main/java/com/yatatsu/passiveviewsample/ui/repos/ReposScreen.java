@@ -9,4 +9,5 @@ import java.util.List;
 public interface ReposScreen extends Screen {
     void showRepositories(List<Repository> repositories);
     void showError(String message);
+    void openUrl(String url);
 }
