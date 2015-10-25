@@ -15,11 +15,11 @@ public class MockGithub implements GitHubService {
 
     @Override
     public Observable<User> getUser(@Path("username") String username) {
-        return Observable.just(MockData.mockUser());
+        return Observable.just(MockData.MOCK_USER);
     }
 
     @Override
     public Observable<List<Repository>> getRepositories(@Path("username") String username) {
-        return Observable.just(MockData.mockRepositories());
+        return Observable.just(MockData.MOCK_REPOS);
     }
 }

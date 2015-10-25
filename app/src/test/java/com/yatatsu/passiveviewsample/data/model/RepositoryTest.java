@@ -24,7 +24,6 @@ public class RepositoryTest {
         List<Repository> repos = gson.fromJson(json(),
                 new TypeToken<List<Repository>>(){}.getType());
         assert_().that(repos).hasSize(1);
-        assert_().that(repos.get(0).id).isEqualTo(1296269);
         assert_().that(repos.get(0).fullName).isEqualTo("octocat/Hello-World");
     }
 

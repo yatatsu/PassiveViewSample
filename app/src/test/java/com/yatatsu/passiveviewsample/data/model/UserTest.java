@@ -22,7 +22,7 @@ public class UserTest {
                 .create();
         User user = gson.fromJson(json(), User.class);
         assert_().that(user.login).isEqualTo("octocat");
-        assert_().that(user.id).isEqualTo(1);
+        assert_().that(user.name).isEqualTo("monalisa octocat");
         assert_().that(user.avatarUrl).isEqualTo("https://github.com/images/error/octocat_happy.gif");
     }
 
