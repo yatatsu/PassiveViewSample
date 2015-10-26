@@ -3,6 +3,7 @@ package com.yatatsu.passiveviewsample.ui.repos;
 
 import com.yatatsu.passiveviewsample.data.api.GitHubService;
 import com.yatatsu.passiveviewsample.data.model.Repository;
+import com.yatatsu.passiveviewsample.ui.ApiErrorPresenter;
 import com.yatatsu.passiveviewsample.ui.base.Controller;
 
 import java.util.List;
@@ -33,7 +34,8 @@ public class ReposController extends Controller<ReposScreen> {
                     @Override
                     public void call(Throwable throwable) {
                         throwable.printStackTrace();
-                        getScreen().showError(throwable.getMessage());
+                        getScreen().showError(
+                                ApiErrorPresenter.getErrorMessage(throwable));
                     }
                 }));
     }

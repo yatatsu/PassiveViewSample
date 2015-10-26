@@ -2,6 +2,7 @@ package com.yatatsu.passiveviewsample.ui.user;
 
 import com.yatatsu.passiveviewsample.data.api.GitHubService;
 import com.yatatsu.passiveviewsample.data.model.User;
+import com.yatatsu.passiveviewsample.ui.ApiErrorPresenter;
 import com.yatatsu.passiveviewsample.ui.base.Controller;
 
 import rx.functions.Action1;
@@ -30,7 +31,8 @@ public class UserController extends Controller<UserScreen> {
                             @Override
                             public void call(Throwable throwable) {
                                 throwable.printStackTrace();
-                                getScreen().showErrorDialog(throwable.getMessage());
+                                getScreen().showErrorDialog(
+                                        ApiErrorPresenter.getErrorMessage(throwable));
                             }
                         }));
     }

@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -90,7 +91,11 @@ public class ReposActivity extends ScreenActivity<ReposController> implements Re
 
     @Override
     public void showError(String message) {
-        Timber.e(message);
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(message)
+                .create()
+                .show();
     }
 
     @Override

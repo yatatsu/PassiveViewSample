@@ -3,6 +3,7 @@ package com.yatatsu.passiveviewsample.ui.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -85,7 +86,11 @@ public class UserActivity extends ScreenActivity<UserController> implements User
 
     @Override
     public void showErrorDialog(String message) {
-        Timber.d("showErrorDialog with %s", message);
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(message)
+                .create()
+                .show();
     }
 
     @Override

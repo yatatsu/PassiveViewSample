@@ -18,6 +18,7 @@ public class TestInjectionHelper {
 
     private static TestInjectionHelper ourInstance = new TestInjectionHelper();
     private static BaseComponent baseComponent;
+    private static AppComponent appComponent;
 
     // Use as singleton
     public static TestInjectionHelper getInstance() {
@@ -25,7 +26,7 @@ public class TestInjectionHelper {
     }
 
     private TestInjectionHelper() {
-        AppComponent appComponent = DaggerAppComponent.builder()
+        appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(new Application()))
                 .build();
         baseComponent = DaggerBaseComponent.builder()
@@ -34,6 +35,10 @@ public class TestInjectionHelper {
                 .threadingModule(new MockThreadingModule())
                 .githubApiModule(new MockGithubApiModule())
                 .build();
+    }
+
+    public static AppComponent getAppComponent() {
+        return appComponent;
     }
 
     /**
