@@ -61,7 +61,7 @@ public class ReposControllerTest {
     public void testOnItemClick() throws Exception {
         Repository repo = MockData.MOCK_REPOS.get(0);
         controller.onItemClick(repo);
-        verify(mockReposScreen).openUrl(repo.htmlUrl);
+        verify(mockReposScreen).openUrl(repo.getHtmlUrl());
     }
 
     @Test

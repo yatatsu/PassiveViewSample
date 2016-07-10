@@ -21,9 +21,9 @@ public class UserTest {
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
         User user = gson.fromJson(json(), User.class);
-        assert_().that(user.login).isEqualTo("octocat");
-        assert_().that(user.name).isEqualTo("monalisa octocat");
-        assert_().that(user.avatarUrl).isEqualTo("https://github.com/images/error/octocat_happy.gif");
+        assert_().that(user.getLogin()).isEqualTo("octocat");
+        assert_().that(user.getName()).isEqualTo("monalisa octocat");
+        assert_().that(user.getAvatarUrl()).isEqualTo("https://github.com/images/error/octocat_happy.gif");
     }
 
     private String json() {

@@ -58,8 +58,8 @@ public class UserControllerTest {
     @Test
     public void testOnCreateScreen() throws Exception {
         controller.onCreateScreen("username");
-        verify(mockUserScreen).showUserImage(MockData.MOCK_USER.avatarUrl);
-        verify(mockUserScreen).showUserName(MockData.MOCK_USER.name);
+        verify(mockUserScreen).showUserImage(MockData.MOCK_USER.getAvatarUrl());
+        verify(mockUserScreen).showUserName(MockData.MOCK_USER.getName());
     }
 
     @Test

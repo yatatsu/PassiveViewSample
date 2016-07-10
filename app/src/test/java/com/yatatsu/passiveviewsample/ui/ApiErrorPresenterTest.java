@@ -16,12 +16,12 @@ public class ApiErrorPresenterTest {
 
     @Test
     public void testGetErrorMessage() throws Exception {
-        assert_().that(ApiErrorPresenter.getErrorMessage(new UnknownHostException()))
+        assert_().that(ApiErrorPresenter.INSTANCE.getErrorMessage(new UnknownHostException()))
                 .isEqualTo("No internet");
         Response response = Response.error(404, null);
-        assert_().that(ApiErrorPresenter.getErrorMessage(new HttpException(response)))
+        assert_().that(ApiErrorPresenter.INSTANCE.getErrorMessage(new HttpException(response)))
                 .isEqualTo("Not Found");
-        assert_().that(ApiErrorPresenter.getErrorMessage(new UnsupportedOperationException()))
+        assert_().that(ApiErrorPresenter.INSTANCE.getErrorMessage(new UnsupportedOperationException()))
                 .isEqualTo("Unknown error");
     }
 }
