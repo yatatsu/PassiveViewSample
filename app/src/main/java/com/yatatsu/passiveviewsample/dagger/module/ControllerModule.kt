@@ -15,19 +15,19 @@ class ControllerModule {
 
   @Provides
   @ActivityScope
-  internal fun provideInputController(): InputController {
+  fun provideInputController(): InputController {
     return InputController()
   }
 
   @Provides
   @ActivityScope
-  internal fun provideUserController(gitHubService: GitHubService): UserController {
+  fun provideUserController(gitHubService: GitHubService): UserController {
     return UserController(gitHubService)
   }
 
   @Provides
   @ActivityScope
-  internal fun provideReposController(gitHubService: GitHubService): ReposController {
+  fun provideReposController(gitHubService: GitHubService): ReposController {
     return ReposController(gitHubService)
   }
 }

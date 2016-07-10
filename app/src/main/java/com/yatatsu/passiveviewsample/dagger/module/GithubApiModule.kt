@@ -18,14 +18,14 @@ open class GithubApiModule {
 
   @ApplicationScope
   @Provides
-  internal fun provideGson(): Gson {
+  fun provideGson(): Gson {
     return GsonBuilder().setFieldNamingPolicy(
         FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
   }
 
   @ApplicationScope
   @Provides
-  internal open fun provideGithubApiService(okHttpClient: OkHttpClient,
+  open fun provideGithubApiService(okHttpClient: OkHttpClient,
       scheduler: Scheduler,
       gson: Gson): GitHubService {
     return GitHub(okHttpClient, scheduler, gson)
